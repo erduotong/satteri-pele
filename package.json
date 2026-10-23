@@ -1,0 +1,12 @@
+{
+  "name": "satteri-pele",
+  "private": true,
+  "scripts": {
+    "lint:check": "biome check --write .",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.2",
+    "vitest": "^5.0.5"
+  }
+}
