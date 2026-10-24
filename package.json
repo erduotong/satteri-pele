@@ -1,6 +1,7 @@
 {
   "name": "satteri-pele",
   "private": true,
+  "type": "module",
   "scripts": {
     "lint:check": "biome check --write .",
     "test": "vitest"

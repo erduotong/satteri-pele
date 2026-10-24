@@ -1,3 +1,2 @@
-export function fn() {
-  return 'Hello, tsdown!'
-}
+export { peleHast, peleMdast } from './plugin';
+export type { SatteriPeleOptions } from './types';
