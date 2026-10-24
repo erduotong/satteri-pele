@@ -52,6 +52,7 @@ export const peleHast = (options: SatteriPeleOptions = {}) => {
         if (!data || typeof source !== 'string') return;
 
         const prefix = options.renderOptions?.idPrefix ?? NAMESPACE;
+        // set unique prefix
         const { svg } = render(source, {
           ...options.renderOptions,
           idPrefix: `${prefix}-${data.nextId}`,
