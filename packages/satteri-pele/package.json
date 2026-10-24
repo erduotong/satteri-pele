@@ -26,7 +26,6 @@
     "ssg"
   ],
   "sideEffects": false,
-  "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "exports": {
     ".": "./dist/index.mjs",
@@ -58,6 +57,5 @@
   },
   "dependencies": {
     "pele": "^1.9.0"
-  },
-  "module": "./dist/index.mjs"
+  }
 }
