@@ -1,9 +1,33 @@
 {
-  "name": "satteri-pele",
+  "name": "@erduotong/satteri-pele",
   "type": "module",
-  "version": "0.0.0",
-  "private": true,
-  "description": "TODO",
+  "version": "0.1.0",
+  "description": "A Sätteri plugin that renders Mermaid code blocks as SVG with Pele",
+  "license": "MIT",
+  "author": "erduotong",
+  "homepage": "https://github.com/erduotong/satteri-pele#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erduotong/satteri-pele.git",
+    "directory": "packages/satteri-pele"
+  },
+  "bugs": {
+    "url": "https://github.com/erduotong/satteri-pele/issues"
+  },
+  "keywords": [
+    "satteri",
+    "satteri-plugin",
+    "pele",
+    "mermaid",
+    "markdown",
+    "diagram",
+    "svg",
+    "ssr",
+    "ssg"
+  ],
+  "sideEffects": false,
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "exports": {
     ".": "./dist/index.mjs",
     "./package.json": "./package.json"
@@ -14,7 +38,16 @@
   "scripts": {
     "build": "tsdown",
     "dev": "tsdown --watch",
-    "debug": "node debug.ts"
+    "debug": "node debug.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepack": "pnpm run typecheck && pnpm test && pnpm run build"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
     "tsdown": "^0.23.1",
@@ -25,5 +58,6 @@
   },
   "dependencies": {
     "pele": "^1.9.0"
-  }
+  },
+  "module": "./dist/index.mjs"
 }
