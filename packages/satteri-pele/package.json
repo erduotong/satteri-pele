@@ -13,7 +13,8 @@
   ],
   "scripts": {
     "build": "tsdown",
-    "dev": "tsdown --watch"
+    "dev": "tsdown --watch",
+    "debug": "node debug.ts"
   },
   "devDependencies": {
     "tsdown": "^0.23.1",

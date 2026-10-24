@@ -1,12 +1,11 @@
-import type {RenderOptions} from "pele";
+import type { RenderOptions } from 'pele';
 
 export interface SatteriPeleOptions {
-    /**
-     *
-     * @default ["mermaid"]
-     */
-    languages?: readonly string[];
+  /**
+   *
+   * @default ["mermaid"]
+   */
+  languages?: readonly string[];
 
-    renderOptions?: RenderOptions
-
+  renderOptions?: RenderOptions;
 }
