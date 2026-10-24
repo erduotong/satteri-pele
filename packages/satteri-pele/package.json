@@ -1,0 +1,28 @@
+{
+  "name": "satteri-pele",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "description": "TODO",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch"
+  },
+  "devDependencies": {
+    "tsdown": "^0.23.1",
+    "typescript": "^7.0.2"
+  },
+  "peerDependencies": {
+    "satteri": "^0.10.5"
+  },
+  "dependencies": {
+    "pele": "^1.9.0"
+  }
+}
