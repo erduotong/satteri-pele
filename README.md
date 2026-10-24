@@ -26,19 +26,19 @@ Install Sätteri alongside the plugin:
 npm add satteri
 ```
 
-```typescript
-import {markdownToHtml} from 'satteri';
-import {peleHast, peleMdast} from '@erduotong/satteri-pele';
+````typescript
+import { markdownToHtml } from 'satteri';
+import { peleHast, peleMdast } from '@erduotong/satteri-pele';
 
 const source = ['```mermaid', 'flowchart LR', '  A --> B', '```'].join('\n');
 
-const {html} = markdownToHtml(source, {
-    mdastPlugins: [peleMdast()],
-    hastPlugins: [peleHast()],
+const { html } = markdownToHtml(source, {
+  mdastPlugins: [peleMdast()],
+  hastPlugins: [peleHast()],
 });
 
 console.log(html); // <svg ...>...</svg>
-```
+````
 
 ### Astro
 
@@ -50,17 +50,17 @@ npm add @astrojs/markdown-satteri satteri
 
 ```typescript
 // astro.config.ts
-import {satteri} from '@astrojs/markdown-satteri';
-import {peleHast, peleMdast} from '@erduotong/satteri-pele';
-import {defineConfig} from 'astro/config';
+import { satteri } from '@astrojs/markdown-satteri';
+import { peleHast, peleMdast } from '@erduotong/satteri-pele';
+import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-    markdown: {
-        processor: satteri({
-            mdastPlugins: [peleMdast()],
-            hastPlugins: [peleHast()],
-        }),
-    },
+  markdown: {
+    processor: satteri({
+      mdastPlugins: [peleMdast()],
+      hastPlugins: [peleHast()],
+    }),
+  },
 });
 ```
 
@@ -80,7 +80,7 @@ The diagram is rendered on the server, with no client-side rendering script.
 Both plugin functions accept a `SatteriPeleOptions` object:
 
 | Option                   | Default          | Description                                                                                                                                                  |
-|--------------------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------------ | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `languages`              | `['mermaid']`    | Code block languages handled by `peleMdast`. Replaces the default list; use `['mermaid', 'mmd']` to support both.                                            |
 | `renderOptions`          | Pele defaults    | Options passed to Pele's `render()` by `peleHast`, such as `fontFamily`, `fontSize`, `responsive`, and `maxWidth`. See the [Pele API](https://pele.run/api). |
 | `renderOptions.idPrefix` | `'satteri-pele'` | Base prefix for SVG IDs. The plugin appends a per-document diagram counter, such as `article-0` and `article-1`, to avoid collisions within a document.      |
@@ -88,21 +88,21 @@ Both plugin functions accept a `SatteriPeleOptions` object:
 Pass the same options to both plugins:
 
 ```typescript
-import {peleHast, peleMdast} from '@erduotong/satteri-pele';
-import type {SatteriPeleOptions} from '@erduotong/satteri-pele';
+import { peleHast, peleMdast } from '@erduotong/satteri-pele';
+import type { SatteriPeleOptions } from '@erduotong/satteri-pele';
 
 const options: SatteriPeleOptions = {
-    languages: ['mermaid', 'mmd'],
-    renderOptions: {
-        fontFamily: 'sans-serif',
-        fontSize: 16,
-        idPrefix: 'article',
-    },
+  languages: ['mermaid', 'mmd'],
+  renderOptions: {
+    fontFamily: 'sans-serif',
+    fontSize: 16,
+    idPrefix: 'article',
+  },
 };
 
 const plugins = {
-    mdastPlugins: [peleMdast(options)],
-    hastPlugins: [peleHast(options)],
+  mdastPlugins: [peleMdast(options)],
+  hastPlugins: [peleHast(options)],
 };
 // Use plugins as the options for markdownToHtml(source, plugins)
 // or for Astro's satteri(plugins).
